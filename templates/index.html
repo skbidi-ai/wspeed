@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Trade Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #e8e0d0;
+            min-height: 100vh;
+            color: #6b6b6b;
+        }
+
+        /* Header - exactly like elvebredd */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: transparent;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-tab {
+            padding: 12px 25px;
+            background: rgba(230, 220, 205, 0.6);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b6b6b;
+            border: 1px solid transparent;
+        }
+
+        .nav-tab:hover {
+            background: rgba(197, 184, 149, 0.3);
+            border-color: #c5b895;
+        }
+
+        .nav-tab.active {
+            background: rgba(197, 184, 149, 0.4);
+            border-color: #c5b895;
+            color: #404040;
+        }
+
+        /* Pet Weight Calculator Styles */
+        .weight-calculator {
+            display: none;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(230, 220, 205, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .weight-calculator.active {
+            display: block;
+        }
+
+        .calculator-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #404040;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #404040;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #d8d2c5;
+            border-radius: 15px;
+            font-size: 16px;
+            color: #404040;
+            background: rgba(255, 250, 240, 0.9);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #c5b895;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #c5b895 0%, #d4c4a0 100%);
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #404040;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .results-container.show {
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(255, 250, 240, 0.5);
+            border-radius: 15px;
+        }
+
+        .age-card {
+            background: rgba(255, 255, 250, 0.9);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
+
+        .age-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .age-number {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .weight-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #404040;
+        }
+
+        .current-age {
+            background: rgba(197, 184, 149, 0.2);
+            border-color: #c5b895;
+        }
+
+        .target-highlight {
+            background: rgba(180, 200, 120, 0.2);
+            border-color: #b4c878;
+        }
+
+        /* Trade Comparison Header - exactly like elvebredd */
+        .trade-header {
+            background: rgba(230, 220, 205, 0.8);
+            border-radius: 40px;
+            padding: 30px 50px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-value {
+            font-size: 52px;
+            font-weight: 700;
+            color: #404040;
+        }
+
+        .offer-label {
+            font-size: 17px;
+            color: #8a8a8a;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+        }
+
+        .trade-status {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            margin: 0 60px;
+        }
+
+        .status-indicator {
+            background: rgba(245, 240, 230, 0.9);
+            border-radius: 30px;
+            padding: 12px 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .status-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #b8b8b8;
+            letter-spacing: 0.8px;
+        }
+
+        .status-text.win {
+            color: #77c377; /* Green for win */
+        }
+
+        .status-text.fair {
+            color: #ffcc00; /* Yellow for fair */
+        }
+
+        .status-text.lose {
+            color: #e66060; /* Red for lose */
+        }
+
+        .progress-bar {
+            width: 250px;
+            height: 8px;
+            background: #d5d5d5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #c5b895 0%, #d4c4a0 50%, #c5b895 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .difference {
+            font-size: 24px;
+            font-weight: 700;
+            color: #404040;
+            margin-top: 15px;
+        }
+
+        /* Trade Grids - EXACTLY like elvebredd with NO colored borders */
+        .trade-content {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .offer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 30px;
+            background: rgba(230, 220, 205, 0.7);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d8d2c5;
+        }
+
+        /* NO red/blue borders - same muted color for both */
+        .their-grid {
+            border-color: #d8d2c5;
+        }
+
+        .pet-slot {
+            width: 90px;
+            height: 90px;
+            background: rgba(250, 245, 235, 0.9);
+            border: 2px dashed #c8c8c8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .pet-slot:hover {
+            background: rgba(255, 250, 240, 0.95);
+            border-color: #a8a8a8;
+        }
+
+        .pet-slot.filled {
+            background: rgba(255, 255, 250, 0.98);
+            border: 2px solid #d8d8d8;
+            padding: 5px;
+        }
+
+        .pet-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .add-button {
+            font-size: 28px;
+            color: #b8b8b8;
+            font-weight: 300;
+        }
+
+        
+
+        .pet-name {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #888;
+            font-weight: 500;
+            white-space: nowrap;
+            max-width: 90px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Search Modal - exactly like elvebredd */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(40, 40, 40, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #e8e0d0;
+            border-radius: 25px;
+            padding: 40px;
+            width: 85%;
+            max-width: 700px;
+            max-height: 70vh;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #404040;
+        }
+
+        .close-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: rgba(160, 160, 160, 0.2);
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .close-btn:hover {
+            background: rgba(160, 160, 160, 0.3);
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 15px 25px;
+            border: 1px solid #d0d0d0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 250, 240, 0.8);
+            color: #404040;
+        }
+
+        .search-bar:focus {
+            border-color: #b8b8b8;
+            box-shadow: 0 0 0 3px rgba(180, 180, 180, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #d0d0d0;
+            background: rgba(255, 250, 240, 0.8);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background: rgba(197, 184, 149, 0.2);
+            border-color: #c5b895;
+            color: #6b6b6b;
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            max-height: 330px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .pet-card {
+            background: rgba(255, 250, 240, 0.9);
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-color: #c5b895;
+        }
+
+        .pet-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .pet-card-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #404040;
+            margin-bottom: 4px;
+        }
+
+        .pet-card-value {
+            font-size: 11px;
+            color: #c5b895;
+            font-weight: 500;
+        }
+
+        /* Admin Panel Styles - matching the design */
+        .admin-panel {
+            display: none;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(230, 220, 205, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #404040;
+            margin-bottom: 30px;
+        }
+
+        .password-section {
+            max-width: 400px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .admin-content {
+            display: none;
+        }
+
+        .admin-content.unlocked {
+            display: block;
+        }
+
+        .admin-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .admin-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #c5b895 0%, #d4c4a0 100%);
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #404040;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Pets Cards Grid */
+        .pets-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pet-admin-card {
+            background: rgba(255, 250, 240, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .pet-admin-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .pet-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+        }
+
+        .pet-card-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #404040;
+        }
+
+        .pet-card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pet-card-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .pet-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pet-field-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pet-field-value {
+            font-size: 14px;
+            color: #404040;
+            font-weight: 500;
+        }
+
+        .pet-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .pet-image-field {
+            grid-column: 1 / -1;
+            margin-top: 10px;
+        }
+
+        .pet-image-url {
+            font-size: 12px;
+            color: #888;
+            word-break: break-all;
+            background: rgba(240, 235, 225, 0.5);
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .edit-input {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1px solid #d8d2c5;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #404040;
+            background: rgba(255, 250, 240, 0.9);
+        }
+
+        .edit-input:focus {
+            border-color: #c5b895;
+            outline: none;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 2px;
+            font-weight: 500;
+            transition: transform 0.1s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .edit-btn {
+            background: #c5b895;
+            color: white;
+        }
+
+        .save-btn {
+            background: #77c377;
+            color: white;
+        }
+
+        .cancel-btn {
+            background: #e66060;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #e66060;
+            color: white;
+        }
+
+        /* Add Pet Form */
+        .add-pet-form {
+            display: none;
+            background: rgba(255, 250, 240, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .add-pet-form.show {
+            display: block;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-grid .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding: 40px 60px;
+            background: transparent;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .footer-description {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .trade-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .trade-header {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .status-indicator {
+                margin: 0;
+            }
+
+            .header {
+                padding: 25px 30px;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+
+            .footer-title, .footer-description {
+                font-size: 24px;
+            }
+
+            .table-header, .table-row {
+                grid-template-columns: 1fr 80px 60px 60px 60px 80px 80px;
+                gap: 8px;
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .pets-cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">Game Services</div>
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('tradeCalculator')">Trade Calculator</div>
+            <div class="nav-tab" onclick="switchTab('weightCalculator')">Pet Weight Calculator</div>
+            <div class="nav-tab" onclick="switchTab('adminPanel')">Admin Panel</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="tradeCalculator">
+        <!-- Trade Comparison Header -->
+        <div class="trade-header">
+            <div class="offer-side">
+                <div class="offer-value" id="yourValue">0</div>
+                <div class="offer-label">YOUR OFFER</div>
+            </div>
+
+            <div class="trade-status">
+                <div class="status-indicator">
+                    <span class="status-text" id="winStatus">WIN</span>
+                    <span class="status-text" id="fairStatus">FAIR</span>
+                    <span class="status-text" id="loseStatus">LOSE</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="difference" id="difference">0</div>
+            </div>
+
+            <div class="offer-side">
+                <div class="offer-value" id="theirValue">0</div>
+                <div class="offer-label">THEIR OFFER</div>
+            </div>
+        </div>
+
+        <!-- Trade Grids -->
+        <div class="trade-content">
+            <!-- Your Offer Grid -->
+            <div class="offer-section">
+                <div class="pet-grid" id="yourGrid">
+                    <!-- 9 slots will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Their Offer Grid -->
+            <div class="offer-section">
+                <div class="pet-grid their-grid" id="theirGrid">
+                    <!-- 9 slots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Detailed</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div class="search-section">
+                <input type="text" class="search-bar" id="searchInput" placeholder="Search" />
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPets('all')">All</button>
+                <button class="filter-btn" onclick="filterPets('favorites')">Favorites</button>
+            </div>
+
+            <div class="pets-grid" id="petsGrid">
+                <!-- Pet cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pet Weight Calculator Section -->
+    <div class="weight-calculator" id="weightCalculator">
+        <div class="calculator-title">Pet Weight Calculator</div>
+
+        <div class="form-group">
+            <label class="form-label" for="currentAge">Current Age (1-100)</label>
+            <input type="number" class="form-input" id="currentAge" min="1" max="100" placeholder="Enter current age">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="currentWeight">Current Weight (kg)</label>
+            <input type="number" class="form-input" id="currentWeight" min="0.1" step="0.1" placeholder="Enter current weight">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="targetAge">Target Age - Optional</label>
+            <input type="number" class="form-input" id="targetAge" min="1" max="100" placeholder="Leave empty to see all ages">
+        </div>
+
+        <button class="calculate-btn" onclick="calculateWeights()">Calculate Weights</button>
+
+        <div class="results-container" id="resultsContainer">
+            <h3 style="text-align: center; color: #404040; margin-bottom: 15px;">Weight Predictions</h3>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Section -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-title">Pet Database Admin Panel</div>
+
+        <div class="password-section" id="passwordSection">
+            <div class="form-group">
+                <label class="form-label" for="adminPassword">Enter Admin Password</label>
+                <input type="password" class="form-input" id="adminPassword" placeholder="Enter password">
+            </div>
+            <button class="calculate-btn" onclick="unlockAdmin()">Unlock Admin Panel</button>
+        </div>
+
+        <div class="admin-content" id="adminContent">
+            <div class="admin-controls">
+                <button class="admin-btn" onclick="showAddPetForm()">Add New Pet</button>
+                <button class="admin-btn" onclick="loadAllPets()">Refresh Pet List</button>
+            </div>
+
+            <!-- Add Pet Form -->
+            <div class="add-pet-form" id="addPetForm">
+                <h3 style="text-align: center; color: #404040; margin-bottom: 20px;">Add New Pet</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Pet Name</label>
+                        <input type="text" class="form-input" id="newPetName" placeholder="Enter pet name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Value</label>
+                        <input type="text" class="form-input" id="newPetValue" placeholder="e.g., 5 Mimic Value">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Demand</label>
+                        <select class="form-input" id="newPetDemand">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                            <option value="Very High">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Trend</label>
+                        <select class="form-input" id="newPetTrend">
+                            <option value="Rising">Rising</option>
+                            <option value="Stable" selected>Stable</option>
+                            <option value="Falling">Falling</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tier</label>
+                        <input type="text" class="form-input" id="newPetTier" placeholder="e.g., Common, Rare">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Obtainment</label>
+                        <input type="text" class="form-input" id="newPetObtainment" placeholder="How to obtain this pet">
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label class="form-label">Image URL</label>
+                        <input type="url" class="form-input" id="newPetImageUrl" placeholder="https://example.com/pet-image.png">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="admin-btn save-btn" onclick="addPet()">Add Pet</button>
+                    <button class="admin-btn cancel-btn" onclick="hideAddPetForm()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Pets Table -->
+            <div class="pets-table" id="petsTable">
+                <!-- Pet rows/cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-title">Grow a Garden Values Calculator</div>
+        <div class="footer-description">Use this Value Calculator to know Grow A Garden Values. Just add pets/items on each side of the trade to compare offers. You should accept the trade in Roblox Grow A Garden if it says win.</div>
+    </div>
+
+    <script>
+        // Global variables
+        let allPets = [];
+        let yourOffer = [];
+        let theirOffer = [];
+        let currentGrid = 'your';
+        let currentSlot = 0;
+        let adminUnlocked = false;
+        let editingPetKey = null;
+
+        // Initialize the trade calculator
+        function initializeTradeCalculator() {
+            createGridSlots();
+            loadPets();
+            setupEventListeners();
+        }
+
+        // Create 3x3 grid slots
+        function createGridSlots() {
+            const yourGrid = document.getElementById('yourGrid');
+            const theirGrid = document.getElementById('theirGrid');
+
+            // Create 9 slots for each grid
+            for (let i = 0; i < 9; i++) {
+                // Your grid slot
+                const yourSlot = document.createElement('div');
+                yourSlot.className = 'pet-slot';
+                yourSlot.innerHTML = '<div class="add-button">+</div>';
+                yourSlot.onclick = () => handleSlotClick('your', i);
+                yourGrid.appendChild(yourSlot);
+
+                // Their grid slot
+                const theirSlot = document.createElement('div');
+                theirSlot.className = 'pet-slot';
+                theirSlot.innerHTML = '<div class="add-button">+</div>';
+                theirSlot.onclick = () => handleSlotClick('their', i);
+                theirGrid.appendChild(theirSlot);
+            }
+            
+            updateGridDisplay();
+        }
+
+        // Load pets from API
+        async function loadPets() {
+            try {
+                const response = await fetch('/pet-list');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    allPets = data.filter(pet => pet.image_url && pet.image_url !== 'null' && pet.image_url.trim() !== '');
+                    console.log('Successfully loaded', allPets.length, 'pets with valid images');
+                    populatePetsGrid();
+                } else {
+                    console.error('Invalid data format received:', data);
+                    allPets = [];
+                }
+            } catch (error) {
+                console.error('Error loading pets:', error);
+                allPets = [];
+            }
+        }
+
+        // Populate pets grid in modal
+        function populatePetsGrid() {
+            const petsGrid = document.getElementById('petsGrid');
+            petsGrid.innerHTML = '';
+
+            allPets.forEach(pet => {
+                const petCard = document.createElement('div');
+                petCard.className = 'pet-card';
+                petCard.innerHTML = `
+                    <img src="${pet.image_url}" alt="${pet.name}" onerror="this.style.display='none'">
+                    <div class="pet-card-name">${pet.name}</div>
+                    <div class="pet-card-value">${pet.value}</div>
+                `;
+                petCard.onclick = () => selectPet(pet);
+                petsGrid.appendChild(petCard);
+            });
+        }
+
+        // Handle slot clicks (either add pet or remove pet)
+        function handleSlotClick(grid, slotIndex) {
+            const offerArray = grid === 'your' ? yourOffer : theirOffer;
+            
+            // If slot has a pet, remove it
+            if (offerArray[slotIndex]) {
+                removePet(grid, slotIndex);
+                return;
+            }
+            
+            // Only allow adding pets to the first available slot
+            const firstEmptySlot = getFirstEmptySlot(offerArray);
+            if (firstEmptySlot === -1) {
+                alert('Grid is full! Remove a pet first.');
+                return;
+            }
+            
+            if (slotIndex !== firstEmptySlot) {
+                // Do nothing if clicking on non-first empty slot
+                return;
+            }
+            
+            // Open modal for first empty slot
+            openModal(grid, slotIndex);
+        }
+
+        // Get first empty slot index
+        function getFirstEmptySlot(offerArray) {
+            for (let i = 0; i < 9; i++) {
+                if (!offerArray[i]) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        // Select a pet from the modal
+        function selectPet(pet) {
+            const offerArray = currentGrid === 'your' ? yourOffer : theirOffer;
+            
+            // Find the first empty slot
+            let targetSlot = getFirstEmptySlot(offerArray);
+            
+            if (targetSlot === -1) {
+                alert('Grid is full! Remove a pet first.');
+                return;
+            }
+
+            // Add pet to the first available slot
+            addPetToSlot(pet, currentGrid, targetSlot);
+            reorganizeGrid(currentGrid);
+            updateTradeComparison();
+            closeModal();
+        }
+
+        // Add pet to specific slot
+        function addPetToSlot(pet, grid, slotIndex) {
+            const offerArray = grid === 'your' ? yourOffer : theirOffer;
+            // Add pet to offer array
+            offerArray[slotIndex] = pet;
+            // Update display will be called by reorganizeGrid or updateGridDisplay
+        }
+
+        // Remove pet from slot and reorganize grid
+        function removePet(grid, slot) {
+            const offerArray = grid === 'your' ? yourOffer : theirOffer;
+            
+            // Remove pet from array
+            delete offerArray[slot];
+            
+            // Reorganize pets to fill gaps
+            reorganizeGrid(grid);
+            
+            updateTradeComparison();
+        }
+
+        // Reorganize grid to move pets to fill empty slots
+        function reorganizeGrid(grid) {
+            const gridId = grid === 'your' ? 'yourGrid' : 'theirGrid';
+            const offerArray = grid === 'your' ? yourOffer : theirOffer;
+            
+            // Get all pets in order, filtering out empty slots
+            const pets = [];
+            for (let i = 0; i < 9; i++) {
+                if (offerArray[i]) {
+                    pets.push(offerArray[i]);
+                }
+            }
+            
+            // Clear the offer array
+            for (let i = 0; i < 9; i++) {
+                delete offerArray[i];
+            }
+            
+            // Re-add pets starting from slot 0
+            pets.forEach((pet, index) => {
+                offerArray[index] = pet;
+            });
+            
+            updateGridDisplay();
+        }
+
+        // Update grid display to show pets and + buttons correctly
+        function updateGridDisplay() {
+            updateGridSide('your');
+            updateGridSide('their');
+        }
+
+        function updateGridSide(grid) {
+            const gridId = grid === 'your' ? 'yourGrid' : 'theirGrid';
+            const gridElement = document.getElementById(gridId);
+            const offerArray = grid === 'your' ? yourOffer : theirOffer;
+            
+            for (let i = 0; i < 9; i++) {
+                const slot = gridElement.children[i];
+                const pet = offerArray[i];
+                
+                if (pet) {
+                    // Show pet
+                    slot.className = 'pet-slot filled';
+                    slot.innerHTML = createPetContent(pet);
+                    slot.onclick = () => handleSlotClick(grid, i);
+                } else {
+                    // Check if this is the first empty slot
+                    const firstEmpty = getFirstEmptySlot(offerArray);
+                    if (i === firstEmpty) {
+                        // Show + button for first empty slot
+                        slot.className = 'pet-slot';
+                        slot.innerHTML = '<div class="add-button">+</div>';
+                        slot.onclick = () => handleSlotClick(grid, i);
+                    } else {
+                        // Show empty slot (no + button)
+                        slot.className = 'pet-slot';
+                        slot.innerHTML = '';
+                        slot.onclick = null;
+                    }
+                }
+            }
+        }
+
+        // Create pet content HTML
+        function createPetContent(pet) {
+            if (pet.image_url && pet.image_url !== 'null' && pet.image_url.trim() !== '') {
+                return `<img src="${pet.image_url}" alt="${pet.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+                        <div class="pet-name">${pet.name}</div>`;
+            } else {
+                // Create placeholder
+                const words = pet.name.split(' ');
+                const initials = words.length > 1 
+                    ? words[0].charAt(0) + words[1].charAt(0) 
+                    : pet.name.charAt(0) + (pet.name.charAt(1) || '');
+                
+                return `<div style="width: 100%; height: 70%; background: linear-gradient(135deg, #f0f0f0, #e0e0e0); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #666; text-align: center; padding: 4px; word-break: break-word; border: 1px solid #ccc;">
+                          <div>${initials.toUpperCase()}</div>
+                        </div>
+                        <div class="pet-name">${pet.name}</div>`;
+            }
+        }
+
+        // Open modal to select pet
+        function openModal(grid, slot) {
+            currentGrid = grid;
+            currentSlot = slot;
+            document.getElementById('searchModal').classList.add('show');
+            document.getElementById('searchInput').focus();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('searchModal').classList.remove('show');
+        }
+
+        // Filter pets
+        function filterPets(type) {
+            // Remove active class from all filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // For now, just show all pets (favorites functionality can be added later)
+            populatePetsGrid();
+        }
+
+        // Update trade comparison
+        function updateTradeComparison() {
+            const yourTotal = calculateOfferValue(yourOffer);
+            const theirTotal = calculateOfferValue(theirOffer);
+            const difference = yourTotal - theirTotal;
+
+            document.getElementById('yourValue').textContent = yourTotal;
+            document.getElementById('theirValue').textContent = theirTotal;
+            document.getElementById('difference').textContent = Math.abs(difference);
+
+            // Update status indicators
+            const winStatus = document.getElementById('winStatus');
+            const fairStatus = document.getElementById('fairStatus');
+            const loseStatus = document.getElementById('loseStatus');
+
+            // Reset all status indicators
+            [winStatus, fairStatus, loseStatus].forEach(el => el.classList.remove('win', 'fair', 'lose'));
+
+            if (Math.abs(difference) <= 1) {
+                fairStatus.classList.add('fair');
+            } else if (difference > 0) {
+                winStatus.classList.add('win');
+            } else {
+                loseStatus.classList.add('lose');
+            }
+
+            // Update progress bar
+            const progressFill = document.getElementById('progressFill');
+            const maxValue = Math.max(yourTotal, theirTotal, 1);
+            const progressPercent = (Math.min(yourTotal, theirTotal) / maxValue) * 100;
+            progressFill.style.width = progressPercent + '%';
+        }
+
+        // Calculate offer value (simplified - you may want to implement proper value calculation)
+        function calculateOfferValue(offer) {
+            let total = 0;
+            Object.values(offer).forEach(pet => {
+                if (pet && pet.value) {
+                    // Extract numeric value from strings like "5 Mimic Value"
+                    const match = pet.value.match(/(\d+(?:\.\d+)?)/);
+                    if (match) {
+                        total += parseFloat(match[1]);
+                    }
+                }
+            });
+            return total;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const petsGrid = document.getElementById('petsGrid');
+
+                Array.from(petsGrid.children).forEach(petCard => {
+                    const petName = petCard.querySelector('.pet-card-name').textContent.toLowerCase();
+                    if (petName.includes(searchTerm)) {
+                        petCard.style.display = 'block';
+                    } else {
+                        petCard.style.display = 'none';
+                    }
+                });
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('searchModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Switch between calculator tabs
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.getElementById('tradeCalculator').style.display = 'none';
+            document.getElementById('weightCalculator').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
+
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab and activate nav
+            if (tabId === 'tradeCalculator') {
+                document.getElementById('tradeCalculator').style.display = 'block';
+                document.querySelector('.nav-tab[onclick="switchTab(\'tradeCalculator\')"]').classList.add('active');
+            } else if (tabId === 'weightCalculator') {
+                document.getElementById('weightCalculator').style.display = 'block';
+                document.querySelector('.nav-tab[onclick="switchTab(\'weightCalculator\')"]').classList.add('active');
+            } else if (tabId === 'adminPanel') {
+                document.getElementById('adminPanel').style.display = 'block';
+                document.querySelector('.nav-tab[onclick="switchTab(\'adminPanel\')"]').classList.add('active');
+            }
+        }
+
+        // Pet Weight Calculator Logic with correct 9.8x multiplier formula
+        function calculateWeightMultiplier(currentAge, currentWeight) {
+            // Base weight formula: 1.00 + (age - 1) * 0.09
+            const baseWeightAtCurrentAge = 1.00 + (currentAge - 1) * 0.09;
+            return currentWeight / baseWeightAtCurrentAge;
+        }
+
+        function predictWeightAtAge(multiplier, targetAge) {
+            const baseWeightAtTarget = 1.00 + (targetAge - 1) * 0.09;
+            return multiplier * baseWeightAtTarget;
+        }
+
+        function calculateWeights() {
+            const currentAge = parseInt(document.getElementById('currentAge').value);
+            const currentWeight = parseFloat(document.getElementById('currentWeight').value);
+            const targetAge = parseInt(document.getElementById('targetAge').value);
+            const resultsGrid = document.getElementById('resultsGrid');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            if (isNaN(currentAge) || isNaN(currentWeight) || currentAge < 1 || currentWeight <= 0 || currentAge > 100) {
+                alert('Please enter valid age (1-100) and current weight.');
+                return;
+            }
+
+            resultsGrid.innerHTML = ''; // Clear previous results
+
+            // Calculate multiplier based on current age and weight
+            const multiplier = calculateWeightMultiplier(currentAge, currentWeight);
+
+            if (!isNaN(targetAge) && targetAge > 0 && targetAge <= 100) {
+                // Calculate for target age only
+                if (targetAge === currentAge) {
+                    const ageCard = document.createElement('div');
+                    ageCard.className = 'age-card current-age';
+                    ageCard.innerHTML = `<div class="age-number">Current</div><div class="weight-value">${currentWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(ageCard);
+                } else {
+                    const targetWeight = predictWeightAtAge(multiplier, targetAge);
+
+                    const currentAgeCard = document.createElement('div');
+                    currentAgeCard.className = 'age-card current-age';
+                    currentAgeCard.innerHTML = `<div class="age-number">${currentAge}</div><div class="weight-value">${currentWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(currentAgeCard);
+
+                    const targetAgeCard = document.createElement('div');
+                    targetAgeCard.className = 'age-card target-highlight';
+                    targetAgeCard.innerHTML = `<div class="age-number">${targetAge}</div><div class="weight-value">${targetWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(targetAgeCard);
+                }
+            } else {
+                // Display weights for all ages if no target age
+                for (let age = 1; age <= 100; age++) {
+                    const predictedWeight = predictWeightAtAge(multiplier, age);
+
+                    const ageCard = document.createElement('div');
+                    ageCard.className = 'age-card';
+                    if (age === currentAge) {
+                        ageCard.classList.add('current-age');
+                    }
+                    ageCard.innerHTML = `<div class="age-number">${age}</div><div class="weight-value">${predictedWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(ageCard);
+                }
+            }
+
+            resultsContainer.classList.add('show');
+        }
+
+        // Admin Panel Functions
+        function unlockAdmin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === 'scarourdeaths') {
+                adminUnlocked = true;
+                document.getElementById('passwordSection').style.display = 'none';
+                document.getElementById('adminContent').classList.add('unlocked');
+                loadAllPets();
+            } else {
+                alert('Incorrect password!');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        function showAddPetForm() {
+            document.getElementById('addPetForm').classList.add('show');
+        }
+
+        function hideAddPetForm() {
+            document.getElementById('addPetForm').classList.remove('show');
+            clearAddPetForm();
+        }
+
+        function clearAddPetForm() {
+            document.getElementById('newPetName').value = '';
+            document.getElementById('newPetValue').value = '';
+            document.getElementById('newPetDemand').value = 'Medium';
+            document.getElementById('newPetTrend').value = 'Stable';
+            document.getElementById('newPetTier').value = '';
+            document.getElementById('newPetObtainment').value = '';
+            document.getElementById('newPetImageUrl').value = '';
+        }
+
+        async function addPet() {
+            const petData = {
+                name: document.getElementById('newPetName').value.trim(),
+                value: document.getElementById('newPetValue').value.trim(),
+                demand: document.getElementById('newPetDemand').value,
+                trend: document.getElementById('newPetTrend').value,
+                tier: document.getElementById('newPetTier').value.trim(),
+                obtainement: document.getElementById('newPetObtainment').value.trim(),
+                image_url: document.getElementById('newPetImageUrl').value.trim()
+            };
+
+            if (!petData.name || !petData.value) {
+                alert('Pet name and value are required!');
+                return;
+            }
+
+            try {
+                const response = await fetch('/admin/pets', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(petData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Pet added successfully!');
+                    hideAddPetForm();
+                    loadAllPets();
+                    loadPets(); // Refresh main pet list too
+                } else {
+                    alert('Error adding pet: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error adding pet: ' + error.message);
+            }
+        }
+
+        async function loadAllPets() {
+            if (!adminUnlocked) return;
+
+            try {
+                const response = await fetch('/admin/pets');
+                const data = await response.json();
+
+                if (response.ok) {
+                    displayPetsTable(data.pets);
+                } else {
+                    alert('Error loading pets: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error loading pets: ' + error.message);
+            }
+        }
+
+        function displayPetsTable(pets) {
+            const tableBody = document.getElementById('petsTable');
+            tableBody.innerHTML = '';
+
+            // Check if the pets object is empty or undefined
+            if (!pets || Object.keys(pets).length === 0) {
+                tableBody.innerHTML = '<div style="text-align: center; padding: 20px; color: #888;">No pets found.</div>';
+                return;
+            }
+
+            Object.entries(pets).forEach(([key, pet]) => {
+                const card = document.createElement('div');
+                card.className = 'pet-admin-card';
+                card.id = `pet-card-${key}`;
+
+                card.innerHTML = `
+                    <div class="pet-card-header">
+                        <div class="pet-card-name">${pet.name}</div>
+                        <div class="pet-card-actions">
+                            <button class="action-btn edit-btn" onclick="editPet('${key}')">Edit</button>
+                            <button class="action-btn delete-btn" onclick="deletePet('${key}', '${pet.name}')">Delete</button>
+                        </div>
+                    </div>
+                    <div class="pet-card-content">
+                        <div class="pet-field">
+                            <div class="pet-field-label">Value</div>
+                            <div class="pet-field-value">${pet.value}</div>
+                        </div>
+                        <div class="pet-field">
+                            <div class="pet-field-label">Demand</div>
+                            <div class="pet-field-value">${pet.demand}</div>
+                        </div>
+                        <div class="pet-field">
+                            <div class="pet-field-label">Trend</div>
+                            <div class="pet-field-value">${pet.trend}</div>
+                        </div>
+                        <div class="pet-field">
+                            <div class="pet-field-label">Tier</div>
+                            <div class="pet-field-value">${pet.tier}</div>
+                        </div>
+                        <div class="pet-field full-width">
+                            <div class="pet-field-label">Obtainment</div>
+                            <div class="pet-field-value">${pet.obtainement}</div>
+                        </div>
+                        <div class="pet-field full-width pet-image-field">
+                            <div class="pet-field-label">Image URL</div>
+                            <div class="pet-image-url">${pet.image_url}</div>
+                        </div>
+                    </div>
+                `;
+                tableBody.appendChild(card);
+            });
+        }
+
+        function editPet(petKey) {
+            if (editingPetKey && editingPetKey !== petKey) {
+                cancelEdit(editingPetKey);
+            }
+
+            editingPetKey = petKey;
+            const card = document.getElementById(`pet-card-${petKey}`);
+
+            // Get current values more reliably
+            const petName = card.querySelector('.pet-card-name').textContent;
+            const fieldValues = card.querySelectorAll('.pet-field-value');
+            const petValue = fieldValues[0] ? fieldValues[0].textContent : '';
+            const petDemand = fieldValues[1] ? fieldValues[1].textContent : 'Medium';
+            const petTrend = fieldValues[2] ? fieldValues[2].textContent : 'Stable';
+            const petTier = fieldValues[3] ? fieldValues[3].textContent : '';
+            const petObtainment = fieldValues[4] ? fieldValues[4].textContent : '';
+            const petImageUrl = card.querySelector('.pet-image-url') ? card.querySelector('.pet-image-url').textContent : '';
+
+            // Replace with inputs
+            card.innerHTML = `
+                <div class="pet-card-header">
+                    <div class="pet-card-name">${petName}</div>
+                    <div class="pet-card-actions">
+                        <button class="action-btn save-btn" onclick="savePet('${petKey}')">Save</button>
+                        <button class="action-btn cancel-btn" onclick="cancelEdit('${petKey}')">Cancel</button>
+                    </div>
+                </div>
+                <div class="pet-card-content">
+                    <div class="pet-field">
+                        <div class="pet-field-label">Value</div>
+                        <input type="text" class="edit-input" id="edit-value-${petKey}" value="${petValue}">
+                    </div>
+                    <div class="pet-field">
+                        <div class="pet-field-label">Demand</div>
+                        <select class="edit-input" id="edit-demand-${petKey}">
+                            <option value="Low" ${petDemand === 'Low' ? 'selected' : ''}>Low</option>
+                            <option value="Medium" ${petDemand === 'Medium' ? 'selected' : ''}>Medium</option>
+                            <option value="High" ${petDemand === 'High' ? 'selected' : ''}>High</option>
+                            <option value="Very High" ${petDemand === 'Very High' ? 'selected' : ''}>Very High</option>
+                        </select>
+                    </div>
+                    <div class="pet-field">
+                        <div class="pet-field-label">Trend</div>
+                        <select class="edit-input" id="edit-trend-${petKey}">
+                            <option value="Rising" ${petTrend === 'Rising' ? 'selected' : ''}>Rising</option>
+                            <option value="Stable" ${petTrend === 'Stable' ? 'selected' : ''}>Stable</option>
+                            <option value="Falling" ${petTrend === 'Falling' ? 'selected' : ''}>Falling</option>
+                        </select>
+                    </div>
+                    <div class="pet-field">
+                        <div class="pet-field-label">Tier</div>
+                        <input type="text" class="edit-input" id="edit-tier-${petKey}" value="${petTier}">
+                    </div>
+                    <div class="pet-field full-width">
+                        <div class="pet-field-label">Obtainment</div>
+                        <input type="text" class="edit-input" id="edit-obtainment-${petKey}" value="${petObtainment}">
+                    </div>
+                    <div class="pet-field full-width pet-image-field">
+                        <div class="pet-field-label">Image URL</div>
+                        <input type="url" class="edit-input" id="edit-imageUrl-${petKey}" value="${petImageUrl}">
+                    </div>
+                </div>
+            `;
+        }
+
+        async function savePet(petKey) {
+            const updatedData = {
+                value: document.getElementById(`edit-value-${petKey}`).value.trim(),
+                demand: document.getElementById(`edit-demand-${petKey}`).value,
+                trend: document.getElementById(`edit-trend-${petKey}`).value,
+                tier: document.getElementById(`edit-tier-${petKey}`).value.trim(),
+                obtainement: document.getElementById(`edit-obtainment-${petKey}`).value.trim(),
+                image_url: document.getElementById(`edit-imageUrl-${petKey}`).value.trim()
+            };
+
+            try {
+                const response = await fetch(`/admin/pets/${petKey}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Pet updated successfully!');
+                    editingPetKey = null;
+                    loadAllPets();
+                    loadPets(); // Refresh main pet list too
+                } else {
+                    alert('Error updating pet: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error updating pet: ' + error.message);
+            }
+        }
+
+        function cancelEdit(petKey) {
+            editingPetKey = null;
+            loadAllPets();
+        }
+
+        async function deletePet(petKey, petName) {
+            if (!confirm(`Are you sure you want to delete ${petName}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/admin/pets/${petKey}`, {
+                    method: 'DELETE'
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Pet deleted successfully!');
+                    loadAllPets();
+                    loadPets(); // Refresh main pet list too
+                } else {
+                    alert('Error deleting pet: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error deleting pet: ' + error.message);
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTradeCalculator();
+            switchTab('tradeCalculator'); // Show trade calculator by default
+        });
+        
+        // Update trade comparison and grid display
+        function updateTradeComparison() {
+            const yourTotal = calculateOfferValue(yourOffer);
+            const theirTotal = calculateOfferValue(theirOffer);
+            const difference = yourTotal - theirTotal;
+
+            document.getElementById('yourValue').textContent = yourTotal;
+            document.getElementById('theirValue').textContent = theirTotal;
+            document.getElementById('difference').textContent = Math.abs(difference);
+
+            // Update status indicators
+            const winStatus = document.getElementById('winStatus');
+            const fairStatus = document.getElementById('fairStatus');
+            const loseStatus = document.getElementById('loseStatus');
+
+            // Reset all status indicators
+            [winStatus, fairStatus, loseStatus].forEach(el => el.classList.remove('win', 'fair', 'lose'));
+
+            if (Math.abs(difference) <= 1) {
+                fairStatus.classList.add('fair');
+            } else if (difference > 0) {
+                winStatus.classList.add('win');
+            } else {
+                loseStatus.classList.add('lose');
+            }
+
+            // Update progress bar
+            const progressFill = document.getElementById('progressFill');
+            const maxValue = Math.max(yourTotal, theirTotal, 1);
+            const progressPercent = (Math.min(yourTotal, theirTotal) / maxValue) * 100;
+            progressFill.style.width = progressPercent + '%';
+            
+            updateGridDisplay();
+        }
+    </script>
+</body>
+</html>

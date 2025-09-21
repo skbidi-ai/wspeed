@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Trade Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #e8e0d0;
+            min-height: 100vh;
+            color: #6b6b6b;
+        }
+
+        /* Header - exactly like elvebredd */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: transparent;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-tab {
+            padding: 12px 25px;
+            background: rgba(230, 220, 205, 0.6);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b6b6b;
+            border: 1px solid transparent;
+        }
+
+        .nav-tab:hover {
+            background: rgba(197, 184, 149, 0.3);
+            border-color: #c5b895;
+        }
+
+        .nav-tab.active {
+            background: rgba(197, 184, 149, 0.4);
+            border-color: #c5b895;
+            color: #404040;
+        }
+
+        /* Pet Weight Calculator Styles */
+        .weight-calculator {
+            display: none;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(230, 220, 205, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .weight-calculator.active {
+            display: block;
+        }
+
+        .calculator-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #404040;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #404040;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #d8d2c5;
+            border-radius: 15px;
+            font-size: 16px;
+            color: #404040;
+            background: rgba(255, 250, 240, 0.9);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #c5b895;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #c5b895 0%, #d4c4a0 100%);
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #404040;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .results-container.show {
+            display: block;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(255, 250, 240, 0.5);
+            border-radius: 15px;
+        }
+
+        .age-card {
+            background: rgba(255, 255, 250, 0.9);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
+
+        .age-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .age-number {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .weight-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #404040;
+        }
+
+        .current-age {
+            background: rgba(197, 184, 149, 0.2);
+            border-color: #c5b895;
+        }
+
+        .target-highlight {
+            background: rgba(180, 200, 120, 0.2);
+            border-color: #b4c878;
+        }
+
+        /* Trade Comparison Header - exactly like elvebredd */
+        .trade-header {
+            background: rgba(230, 220, 205, 0.8);
+            border-radius: 40px;
+            padding: 30px 50px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-value {
+            font-size: 52px;
+            font-weight: 700;
+            color: #404040;
+        }
+
+        .offer-label {
+            font-size: 17px;
+            color: #8a8a8a;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+        }
+
+        .trade-status {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            margin: 0 60px;
+        }
+
+        .status-indicator {
+            background: rgba(245, 240, 230, 0.9);
+            border-radius: 30px;
+            padding: 12px 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .status-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #b8b8b8;
+            letter-spacing: 0.8px;
+        }
+
+        .status-text.win {
+            color: #77c377; /* Green for win */
+        }
+
+        .status-text.fair {
+            color: #ffcc00; /* Yellow for fair */
+        }
+
+        .status-text.lose {
+            color: #e66060; /* Red for lose */
+        }
+
+        .progress-bar {
+            width: 250px;
+            height: 8px;
+            background: #d5d5d5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #c5b895 0%, #d4c4a0 50%, #c5b895 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .difference {
+            font-size: 24px;
+            font-weight: 700;
+            color: #404040;
+            margin-top: 15px;
+        }
+
+        /* Trade Grids - EXACTLY like elvebredd with NO colored borders */
+        .trade-content {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .offer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 30px;
+            background: rgba(230, 220, 205, 0.7);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d8d2c5;
+        }
+
+        /* NO red/blue borders - same muted color for both */
+        .their-grid {
+            border-color: #d8d2c5;
+        }
+
+        .pet-slot {
+            width: 90px;
+            height: 90px;
+            background: rgba(250, 245, 235, 0.9);
+            border: 2px dashed #c8c8c8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .pet-slot:hover {
+            background: rgba(255, 250, 240, 0.95);
+            border-color: #a8a8a8;
+        }
+
+        .pet-slot.filled {
+            background: rgba(255, 255, 250, 0.98);
+            border: 2px solid #d8d8d8;
+            padding: 5px;
+        }
+
+        .pet-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .add-button {
+            font-size: 28px;
+            color: #b8b8b8;
+            font-weight: 300;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: #c5b895;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .remove-btn:hover {
+            background: #b8aa85;
+        }
+
+        .pet-name {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #888;
+            font-weight: 500;
+            white-space: nowrap;
+            max-width: 90px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Search Modal - exactly like elvebredd */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(40, 40, 40, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #e8e0d0;
+            border-radius: 25px;
+            padding: 40px;
+            width: 85%;
+            max-width: 700px;
+            max-height: 70vh;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #404040;
+        }
+
+        .close-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: rgba(160, 160, 160, 0.2);
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .close-btn:hover {
+            background: rgba(160, 160, 160, 0.3);
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 15px 25px;
+            border: 1px solid #d0d0d0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 250, 240, 0.8);
+            color: #404040;
+        }
+
+        .search-bar:focus {
+            border-color: #b8b8b8;
+            box-shadow: 0 0 0 3px rgba(180, 180, 180, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #d0d0d0;
+            background: rgba(255, 250, 240, 0.8);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background: rgba(197, 184, 149, 0.2);
+            border-color: #c5b895;
+            color: #6b6b6b;
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            max-height: 330px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .pet-card {
+            background: rgba(255, 250, 240, 0.9);
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-color: #c5b895;
+        }
+
+        .pet-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .pet-card-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #404040;
+            margin-bottom: 4px;
+        }
+
+        .pet-card-value {
+            font-size: 11px;
+            color: #c5b895;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding: 40px 60px;
+            background: transparent;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .footer-description {
+            font-size: 36px;
+            font-weight: 700;
+            color: #404040;
+            letter-spacing: -1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .trade-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .trade-header {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .status-indicator {
+                margin: 0;
+            }
+
+            .header {
+                padding: 25px 30px;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            .footer {
+                padding: 30px 20px;
+            }
+
+            .footer-title, .footer-description {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">Game Services</div>
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('tradeCalculator')">Trade Calculator</div>
+            <div class="nav-tab" onclick="switchTab('weightCalculator')">Pet Weight Calculator</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="tradeCalculator">
+        <!-- Trade Comparison Header -->
+        <div class="trade-header">
+            <div class="offer-side">
+                <div class="offer-value" id="yourValue">0</div>
+                <div class="offer-label">YOUR OFFER</div>
+            </div>
+
+            <div class="trade-status">
+                <div class="status-indicator">
+                    <span class="status-text" id="winStatus">WIN</span>
+                    <span class="status-text" id="fairStatus">FAIR</span>
+                    <span class="status-text" id="loseStatus">LOSE</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="difference" id="difference">0</div>
+            </div>
+
+            <div class="offer-side">
+                <div class="offer-value" id="theirValue">0</div>
+                <div class="offer-label">THEIR OFFER</div>
+            </div>
+        </div>
+
+        <!-- Trade Grids -->
+        <div class="trade-content">
+            <!-- Your Offer Grid -->
+            <div class="offer-section">
+                <div class="pet-grid" id="yourGrid">
+                    <!-- 9 slots will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Their Offer Grid -->
+            <div class="offer-section">
+                <div class="pet-grid their-grid" id="theirGrid">
+                    <!-- 9 slots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Detailed</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div class="search-section">
+                <input type="text" class="search-bar" id="searchInput" placeholder="Search" />
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPets('all')">All</button>
+                <button class="filter-btn" onclick="filterPets('favorites')">Favorites</button>
+            </div>
+
+            <div class="pets-grid" id="petsGrid">
+                <!-- Pet cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pet Weight Calculator Section -->
+    <div class="weight-calculator" id="weightCalculator">
+        <div class="calculator-title">Pet Weight Calculator</div>
+
+        <div class="form-group">
+            <label class="form-label" for="currentAge">Current Age (1-100)</label>
+            <input type="number" class="form-input" id="currentAge" min="1" max="100" placeholder="Enter current age">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="currentWeight">Current Weight (kg)</label>
+            <input type="number" class="form-input" id="currentWeight" min="0.1" step="0.1" placeholder="Enter current weight">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="targetAge">Target Age - Optional</label>
+            <input type="number" class="form-input" id="targetAge" min="1" max="100" placeholder="Leave empty to see all ages">
+        </div>
+
+        <button class="calculate-btn" onclick="calculateWeights()">Calculate Weights</button>
+
+        <div class="results-container" id="resultsContainer">
+            <h3 style="text-align: center; color: #404040; margin-bottom: 15px;">Weight Predictions</h3>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-title">Grow a Garden Values Calculator</div>
+        <div class="footer-description">Use this Value Calculator to know Grow A Garden Values. Just add pets/items on each side of the trade to compare offers. You should accept the trade in Roblox Grow A Garden if it says win.</div>
+    </div>
+
+    <script>
+        // Global variables
+        let allPets = [];
+        let yourOffer = [];
+        let theirOffer = [];
+        let currentGrid = 'your';
+        let currentSlot = 0;
+
+        // Initialize the trade calculator
+        function initializeTradeCalculator() {
+            createGridSlots();
+            loadPets();
+            setupEventListeners();
+        }
+
+        // Create 3x3 grid slots
+        function createGridSlots() {
+            const yourGrid = document.getElementById('yourGrid');
+            const theirGrid = document.getElementById('theirGrid');
+
+            // Create 9 slots for each grid
+            for (let i = 0; i < 9; i++) {
+                // Your grid slot
+                const yourSlot = document.createElement('div');
+                yourSlot.className = 'pet-slot';
+                yourSlot.innerHTML = '<div class="add-button">+</div>';
+                yourSlot.onclick = () => openModal('your', i);
+                yourGrid.appendChild(yourSlot);
+
+                // Their grid slot
+                const theirSlot = document.createElement('div');
+                theirSlot.className = 'pet-slot';
+                theirSlot.innerHTML = '<div class="add-button">+</div>';
+                theirSlot.onclick = () => openModal('their', i);
+                theirGrid.appendChild(theirSlot);
+            }
+        }
+
+        // Load pets from API
+        async function loadPets() {
+            try {
+                const response = await fetch('/pet-list');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (Array.isArray(data)) {
+                    allPets = data.filter(pet => pet.image_url && pet.image_url !== 'null' && pet.image_url.trim() !== '');
+                    console.log('Successfully loaded', allPets.length, 'pets with valid images');
+                    populatePetsGrid();
+                } else {
+                    console.error('Invalid data format received:', data);
+                    allPets = [];
+                }
+            } catch (error) {
+                console.error('Error loading pets:', error);
+                allPets = [];
+            }
+        }
+
+        // Populate pets grid in modal
+        function populatePetsGrid(filter = 'all') {
+            const petsGrid = document.getElementById('petsGrid');
+            petsGrid.innerHTML = '';
+
+            if (!Array.isArray(allPets) || allPets.length === 0) {
+                petsGrid.innerHTML = '<div style="text-align: center; color: #888; padding: 20px;">No pets available</div>';
+                return;
+            }
+
+            let filteredPets = allPets;
+            if (filter !== 'all') {
+                filteredPets = allPets.filter(pet =>
+                    pet.tier && pet.tier.toLowerCase().includes(filter.toLowerCase())
+                );
+            }
+
+            filteredPets.forEach(pet => {
+                const petCard = document.createElement('div');
+                petCard.className = 'pet-card';
+                petCard.onclick = () => addPetToGrid(pet);
+
+                petCard.innerHTML = `
+                    <img src="${pet.image_url}" alt="${pet.name || 'Pet'}" style="border-radius: 8px;">
+                    <div class="pet-card-name">${pet.name || 'Unknown'}</div>
+                    <div class="pet-card-value">${formatPetValue(pet)}</div>
+                `;
+
+                petsGrid.appendChild(petCard);
+            });
+        }
+
+        // Format pet value for display
+        function formatPetValue(pet) {
+            if (pet.value_display) {
+                return pet.value_display;
+            }
+            if (pet.value && !isNaN(pet.value)) {
+                return formatValue(pet.value);
+            }
+            return 'No Value';
+        }
+
+        // Open search modal
+        function openModal(grid, slot) {
+            currentGrid = grid;
+            currentSlot = slot;
+            document.getElementById('searchModal').classList.add('show');
+            document.getElementById('searchInput').focus();
+        }
+
+        // Close search modal
+        function closeModal() {
+            document.getElementById('searchModal').classList.remove('show');
+            document.getElementById('searchInput').value = '';
+            populatePetsGrid();
+        }
+
+        // Add pet to grid
+        function addPetToGrid(pet) {
+            const gridId = currentGrid === 'your' ? 'yourGrid' : 'theirGrid';
+            const grid = document.getElementById(gridId);
+            const slot = grid.children[currentSlot];
+
+            // Add pet to offer array
+            if (currentGrid === 'your') {
+                yourOffer[currentSlot] = pet;
+            } else {
+                theirOffer[currentSlot] = pet;
+            }
+
+            // Update slot appearance
+            slot.className = 'pet-slot filled';
+            slot.innerHTML = `
+                <img src="${pet.image_url}" alt="${pet.name || 'Pet'}" style="border-radius: 6px;">
+                <button class="remove-btn" onclick="removePet('${currentGrid}', ${currentSlot})">&times;</button>
+                <div class="pet-name">${pet.name || 'Unknown'}</div>
+            `;
+
+            updateTradeCalculation();
+            closeModal();
+        }
+
+        // Remove pet from grid
+        function removePet(grid, slot) {
+            const gridId = grid === 'your' ? 'yourGrid' : 'theirGrid';
+            const gridElement = document.getElementById(gridId);
+            const slotElement = gridElement.children[slot];
+
+            // Remove pet from offer array
+            if (grid === 'your') {
+                yourOffer[slot] = null;
+            } else {
+                theirOffer[slot] = null;
+            }
+
+            // Reset slot appearance
+            slotElement.className = 'pet-slot';
+            slotElement.innerHTML = '<div class="add-button">+</div>';
+            slotElement.onclick = () => openModal(grid, slot);
+
+            updateTradeCalculation();
+        }
+
+        // Update trade calculation and display
+        function updateTradeCalculation() {
+            const yourTotal = yourOffer.reduce((sum, pet) => {
+                if (!pet) return sum;
+                const value = parseFloat(pet.value) || 0;
+                return sum + value;
+            }, 0);
+
+            const theirTotal = theirOffer.reduce((sum, pet) => {
+                if (!pet) return sum;
+                const value = parseFloat(pet.value) || 0;
+                return sum + value;
+            }, 0);
+
+            // FIXED: Corrected the difference calculation - their offer minus your offer
+            const difference = theirTotal - yourTotal;
+
+            // Update display values
+            document.getElementById('yourValue').textContent = formatValue(yourTotal);
+            document.getElementById('theirValue').textContent = formatValue(theirTotal);
+            document.getElementById('difference').textContent = formatValue(Math.abs(difference));
+
+            // Update status indicators
+            const winStatus = document.getElementById('winStatus');
+            const fairStatus = document.getElementById('fairStatus');
+            const loseStatus = document.getElementById('loseStatus');
+            const progressFill = document.getElementById('progressFill');
+
+            // Reset all statuses
+            winStatus.classList.remove('win', 'fair', 'lose');
+            fairStatus.classList.remove('win', 'fair', 'lose');
+            loseStatus.classList.remove('win', 'fair', 'lose');
+
+            // FIXED: Corrected logic - positive difference means you win, negative means you lose
+            if (difference < 100) {
+                // You win (they're offering more than you)
+                winStatus.classList.add('win');
+                progressFill.style.width = '25%';
+            } else if (difference < -100) {
+                // You lose (you're offering more than them)
+                loseStatus.classList.add('lose');
+                progressFill.style.width = '75%';
+            } else {
+                // Fair trade
+                fairStatus.classList.add('fair');
+                progressFill.style.width = '50%';
+            }
+        }
+
+        // Format value for display
+        function formatValue(value) {
+            if (!value || isNaN(value)) return '0';
+            if (value >= 1000) {
+                return (value / 1000).toFixed(1) + 'K';
+            }
+            return Math.round(value).toString();
+        }
+
+        // Filter pets in modal
+        function filterPets(filter) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            populatePetsGrid(filter);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (query.length === 0) {
+                    populatePetsGrid();
+                    return;
+                }
+
+                if (!Array.isArray(allPets)) {
+                    return;
+                }
+
+                const filteredPets = allPets.filter(pet =>
+                    (pet.name || '').toLowerCase().includes(query)
+                );
+
+                const petsGrid = document.getElementById('petsGrid');
+                petsGrid.innerHTML = '';
+
+                if (filteredPets.length === 0) {
+                    petsGrid.innerHTML = '<div style="text-align: center; color: #888; padding: 20px;">No pets found</div>';
+                    return;
+                }
+
+                filteredPets.forEach(pet => {
+                    const petCard = document.createElement('div');
+                    petCard.className = 'pet-card';
+                    petCard.onclick = () => addPetToGrid(pet);
+
+                    petCard.innerHTML = `
+                        <img src="${pet.image_url}" alt="${pet.name || 'Pet'}" style="border-radius: 8px;">
+                        <div class="pet-card-name">${pet.name || 'Unknown'}</div>
+                        <div class="pet-card-value">${formatPetValue(pet)}</div>
+                    `;
+
+                    petsGrid.appendChild(petCard);
+                });
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('searchModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Switch between calculator tabs
+        function switchTab(tabId) {
+            document.getElementById('tradeCalculator').style.display = 'none';
+            document.getElementById('weightCalculator').style.display = 'none';
+
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+
+            if (tabId === 'tradeCalculator') {
+                document.getElementById('tradeCalculator').style.display = 'block';
+                document.querySelector('.nav-tab[onclick="switchTab(\'tradeCalculator\')"]').classList.add('active');
+            } else if (tabId === 'weightCalculator') {
+                document.getElementById('weightCalculator').style.display = 'block';
+                document.querySelector('.nav-tab[onclick="switchTab(\'weightCalculator\')"]').classList.add('active');
+            }
+        }
+
+        // Pet Weight Calculator Logic with correct 9.8x multiplier formula
+        function calculateWeightMultiplier(currentAge, currentWeight) {
+            // Base weight formula: 1.00 + (age - 1) * 0.09
+            const baseWeightAtCurrentAge = 1.00 + (currentAge - 1) * 0.09;
+            return currentWeight / baseWeightAtCurrentAge;
+        }
+
+        function predictWeightAtAge(multiplier, targetAge) {
+            const baseWeightAtTarget = 1.00 + (targetAge - 1) * 0.09;
+            return multiplier * baseWeightAtTarget;
+        }
+
+        function calculateWeights() {
+            const currentAge = parseInt(document.getElementById('currentAge').value);
+            const currentWeight = parseFloat(document.getElementById('currentWeight').value);
+            const targetAge = parseInt(document.getElementById('targetAge').value);
+            const resultsGrid = document.getElementById('resultsGrid');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            if (isNaN(currentAge) || isNaN(currentWeight) || currentAge < 1 || currentWeight <= 0 || currentAge > 100) {
+                alert('Please enter valid age (1-100) and current weight.');
+                return;
+            }
+
+            resultsGrid.innerHTML = ''; // Clear previous results
+
+            // Calculate multiplier based on current age and weight
+            const multiplier = calculateWeightMultiplier(currentAge, currentWeight);
+
+            if (!isNaN(targetAge) && targetAge > 0 && targetAge <= 100) {
+                // Calculate for target age only
+                if (targetAge === currentAge) {
+                    const ageCard = document.createElement('div');
+                    ageCard.className = 'age-card current-age';
+                    ageCard.innerHTML = `<div class="age-number">Current</div><div class="weight-value">${currentWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(ageCard);
+                } else {
+                    const targetWeight = predictWeightAtAge(multiplier, targetAge);
+
+                    const currentAgeCard = document.createElement('div');
+                    currentAgeCard.className = 'age-card current-age';
+                    currentAgeCard.innerHTML = `<div class="age-number">${currentAge}</div><div class="weight-value">${currentWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(currentAgeCard);
+
+                    const targetAgeCard = document.createElement('div');
+                    targetAgeCard.className = 'age-card target-highlight';
+                    targetAgeCard.innerHTML = `<div class="age-number">${targetAge}</div><div class="weight-value">${targetWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(targetAgeCard);
+                }
+            } else {
+                // Display weights for all ages if no target age
+                for (let age = 1; age <= 100; age++) {
+                    const predictedWeight = predictWeightAtAge(multiplier, age);
+
+                    const ageCard = document.createElement('div');
+                    ageCard.className = 'age-card';
+                    if (age === currentAge) {
+                        ageCard.classList.add('current-age');
+                    }
+                    ageCard.innerHTML = `<div class="age-number">${age}</div><div class="weight-value">${predictedWeight.toFixed(1)}kg</div>`;
+                    resultsGrid.appendChild(ageCard);
+                }
+            }
+
+            resultsContainer.classList.add('show');
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTradeCalculator();
+            switchTab('tradeCalculator'); // Show trade calculator by default
+        });
+    </script>
+</body>
+</html>

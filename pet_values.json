@@ -1,0 +1,892 @@
+{
+  "corrupted_kitsune": {
+    "name": "Corrupted Kitsune",
+    "value": "55 Mimic Value",
+    "demand": "Medium",
+    "trend": "Rising",
+    "tier": "Divine",
+    "obtainement": "[Kitsune Chest](https://growagarden.fandom.com/wiki/Kitsune_Chest) <:KitsuneChest:1414566037051019355> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406717316804251898/latest.png?ex=68a37b17&is=68a22997&hm=ab3b3727fff5419d7942dc0fbf1ece6a4f172d3764182bac5124422b3af6b2a5&=&format=webp"
+  },
+  "kitsune": {
+    "name": "Kitsune",
+    "value": "2100 Mimic Value",
+    "demand": "High",
+    "trend": "Rising",
+    "tier": "Divine",
+    "obtainement": "[Zen Egg](https://growagarden.fandom.com/wiki/Zen_Egg) <:ZenEgg:1414566667324882965>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406717386991603833/1000.png?ex=68a37b28&is=68a229a8&hm=32526ea6bf2f3bf252c9696f79829f290a9b5fb3b217ae5744fe16bb711e64b2&=&format=webp&width=860&height=817",
+    "last_updated": "2025-09-12T22:13:55.035241"
+  },
+  "griffin": {
+    "name": "Griffin",
+    "value": "30 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Dropping",
+    "tier": "Divine",
+    "obtainement": "[Skyroot Chest](https://growagarden.fandom.com/wiki/Skyroot_Chest) <:SkyrootChest:1414566875144130590> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1410216078176555008/latest.png?ex=68b03591&is=68aee411&hm=d26cc46064a9d203f238d5c3edaa13415a7f42a4aead243b1df26c97011ed172&=&format=webp"
+  },
+  "green_bean": {
+    "name": "Green Bean",
+    "value": "15 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Admin Abuse War](https://growagarden.fandom.com/wiki/Admin_Abuse_War) <:AdminWar:1414578691253473290> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409334352944300135/latest.png?ex=68ad0065&is=68abaee5&hm=c1a13a770f721c50aebd7e0195f4ec4c524736e7c7d71489f3db3c6c3c02042c&=&format=webp"
+  },
+  "red_fox": {
+    "name": "Red Fox",
+    "value": "10 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Mythical Egg](https://growagarden.fandom.com/wiki/Mythical_Egg) <:MythicalEgg:1414571206299881577>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406722527635443782/latest.png?ex=68a37ff2&is=68a22e72&hm=288de6ade71a0f8a53a432c5c7e221fce47231be637c199078040419f315c703&=&format=webp"
+  },
+  "dragonfly": {
+    "name": "Dragonfly",
+    "value": "70 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Bug Egg](https://growagarden.fandom.com/wiki/Bug_Egg) <:BugEgg:1414571623465353337>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406722133031391272/latest.png?ex=68a37f94&is=68a22e14&hm=9764b129ede1f35ef1f447dcf096e4d7f2e0ee172902b949207446f9c43b11da&=&format=webp&width=817&height=817",
+    "last_updated": "2025-09-14T21:53:44.743825"
+  },
+  "queen_bee": {
+    "name": "Queen Bee",
+    "value": "65 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Bee Egg](https://growagarden.fandom.com/wiki/Bee_Egg) <:BeeEgg:1414575642783125534> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406721865585660097/latest.png?ex=68a37f54&is=68a22dd4&hm=ccc8b10d7aa57e09c52b227536efeaecfc9b9117030b973702b82dd4408b39ef&=&format=webp"
+  },
+  "lobster_thermidor": {
+    "name": "Lobster Thermidor",
+    "value": "75 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Culinarian Chest](https://growagarden.fandom.com/wiki/Culinarian_Chest) <:CulinarianChest:1414578168039346376> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406721601277399040/latest.png?ex=68a37f15&is=68a22d95&hm=dd07fbde9455227bab4b698be78fc95533e6b6942762f41068115775c4282980&=&format=webp"
+  },
+  "mizuchi": {
+    "name": "Mizuchi",
+    "value": "Unreleased",
+    "demand": "Unknown",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Unreleased](https://growagarden.fandom.com/wiki/Mizuchi)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406721239111700521/latest.png?ex=68a37ebf&is=68a22d3f&hm=4ff4d77edc2765eaa3020948bdca27fcc8c0ccf955dcc94c98fa526cd011a4fc&=&format=webp"
+  },
+  "blood_owl": {
+    "name": "Blood Owl",
+    "value": "20 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Blood Moon Shop](https://growagarden.fandom.com/wiki/Lunar_Glow_Event) <:LunarGlowEvent:1414577771262378025> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406720880264089641/latest.png?ex=68a37e69&is=68a22ce9&hm=03274eb024e5684b3dfb90c64c5aa9221e9ad07f5ad8977ae29e2cd64fc9376c&=&format=webp"
+  },
+  "french_fry_ferret": {
+    "name": "French Fry Ferret",
+    "value": "70 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Gourmet Egg](https://growagarden.fandom.com/wiki/Gourmet_Egg) <:GourmetEgg:1414568135205453836>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406720663699456170/latest.png?ex=68a37e35&is=68a22cb5&hm=5d29a0b2c041b8037eb1d8fa6a59d79d22ab1db172d98111a76ac57a8945f918&=&format=webp"
+  },
+  "spinosaurus": {
+    "name": "Spinosaurus",
+    "value": "205 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Primal Egg](https://growagarden.fandom.com/wiki/Primal_Egg) <:PrimalEgg:1414576353499414568>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406720034604060722/latest.png?ex=68a37d9f&is=68a22c1f&hm=59c02f38f789964c651b1b992805421b884e712c261e31544648606ce6e51f3f&=&format=webp"
+  },
+  "fennec_fox": {
+    "name": "Fennec Fox",
+    "value": "380 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Oasis Egg](https://growagarden.fandom.com/wiki/Oasis_Egg) <:OasisEgg:1414577046058696845> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406719069356560404/latest.png?ex=68a37cb9&is=68a22b39&hm=5b8703401ff3135e7041fbab037ef73a234597d2fda571426977bf880b42a0ff&=&format=webp"
+  },
+  "golden_goose": {
+    "name": "Golden Goose",
+    "value": "55 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Sprout Egg](https://growagarden.fandom.com/wiki/Sprout_Egg) <:SproutEgg:1414577369884135455> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406718696071626902/latest.png?ex=68a37c60&is=68a22ae0&hm=4b8aa1893c6ac34be7a9d8701da8a2a422177aa33492798cb1fc8bb7d2d8f436&=&format=webp"
+  },
+  "phoenix": {
+    "name": "Phoenix",
+    "value": "70 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Enchanted Chest](https://growagarden.fandom.com/wiki/Enchanted_Chest) <:EnchantedChest:1416092781713293322>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416092268934463568/latest.png?ex=68c59632&is=68c444b2&hm=011a37db2a4792097c7e7a244d4f57ed69b11292cdfe9cc5e33b167fc0cdb266&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-14T21:54:48.116522"
+  },
+  "disco_bee": {
+    "name": "Disco Bee",
+    "value": "500 Mimic Value",
+    "demand": "High",
+    "trend": "Rising",
+    "tier": "Divine",
+    "obtainement": "[Anti-Bee Egg](https://growagarden.fandom.com/wiki/Anti_Bee_Egg) <:AntiBeeEgg:1414575274137358477> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406718414835290132/latest.png?ex=68a37c1d&is=68a22a9d&hm=effaee07337eebc435d0e126bd62b3d6e1cc08f5094844cb49a5b80bfec06ed9&=&format=webp"
+  },
+  "raccoon": {
+    "name": "Raccoon",
+    "value": "860 Mimic Value",
+    "demand": "Very High",
+    "trend": "Rising",
+    "tier": "Divine",
+    "obtainement": "[Night Egg](https://growagarden.fandom.com/wiki/Night_Egg) <:NightEgg:1414564747839279145>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406718186367221801/latest.png?ex=68a37be7&is=68a22a67&hm=e2c26f2ea232a3a6ffa5896ad0d1169cf4d64d54f01b55dce4823402ae838f65&=&format=webp",
+    "last_updated": "2025-09-12T21:40:32.335694"
+  },
+  "junkbot": {
+    "name": "Junkbot",
+    "value": "8 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Participating in the update with Albert](https://growagarden.fandom.com/wiki/Junkbot)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411615655228215528/latest.png?ex=68b54d06&is=68b3fb86&hm=7653402b88c090576663c7f36d00d8bcdb998364582e6d0953dcd97d7fa75633&=&format=webp"
+  },
+  "mochi_mouse": {
+    "name": "Mochi Mouse",
+    "value": "3.5 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Cooking Event Rewards](https://growagarden.fandom.com/wiki/Mochi_Mouse)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406720386074284243/latest.png?ex=68be84b3&is=68bd3333&hm=b689a03c251bf4f9f0bf377c0d042f9e378decf6ce9a46545a7fa50f2a3bf7c3&=&format=webp&quality=lossless"
+  },
+  "Trex": {
+    "name": "T-rex",
+    "value": "95 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Dinosaur Egg](https://growagarden.fandom.com/wiki/Dinosaur_Egg) <:DinosaurEgg:1414576052671348746>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406720386074284243/latest.png?ex=68be84b3&is=68bd3333&hm=b689a03c251bf4f9f0bf377c0d042f9e378decf6ce9a46545a7fa50f2a3bf7c3&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-15T13:30:27.500887"
+  },
+  "spaghetti_sloth": {
+    "name": "Spaghetti Sloth",
+    "value": "13 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Gourmet Egg](https://growagarden.fandom.com/wiki/Gourmet_Egg) <:GourmetEgg:1414568135205453836>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411615116562137169/latest.png?ex=68b54c86&is=68b3fb06&hm=c3edec17208f5e388b6cf58ae3891ac4e2af65acc27ad2fd0356e73bcfbdc622&=&format=webp"
+  },
+  "koi": {
+    "name": "Koi",
+    "value": "6 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Zen Shop](https://growagarden.fandom.com/wiki/Zen_Event)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614933543686154/latest.png?ex=68b54c5a&is=68b3fada&hm=486e6e588abacacbf7185857bf430b696b1c48958bba8f8bacc7d3fa42b7e6bc&=&format=webp"
+  },
+  "kappa": {
+    "name": "Kappa",
+    "value": "3 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Zen Egg](https://growagarden.fandom.com/wiki/Zen_Egg) <:ZenEgg:1414566667324882965>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614797547442176/latest.png?ex=68b54c3a&is=68b3faba&hm=ab8c92b19e79d2d86837992cc40747130d2afb75593b044a0f4419b0a9c0e155&=&format=webp",
+    "last_updated": "2025-09-12T22:14:40.311623"
+  },
+  "brontosaurus": {
+    "name": "Brontosaurus",
+    "value": "40 Mimic Value",
+    "demand": "High",
+    "trend": "Rising Fast",
+    "tier": "Mythical",
+    "obtainement": "[Dinosaur Egg](https://growagarden.fandom.com/wiki/Dinosaur_Egg) <:DinosaurEgg:1414576052671348746> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614669759709285/latest.png?ex=68b54c1b&is=68b3fa9b&hm=a015676cbfc1a96c67a27940dd3a9fc0d354e244d5a0356ea4ec44197ba788bd&=&format=webp"
+  },
+  "pterodactyl": {
+    "name": "Pterodactyl",
+    "value": "5 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Dinosaur Egg](https://growagarden.fandom.com/wiki/Dinosaur_Egg) <:DinosaurEgg:1414576052671348746> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614514494967928/latest.png?ex=68b54bf6&is=68b3fa76&hm=f85c6f9c7a8b6838034e87bb95973d63e15650ddf5ef37b74fcd218144067449&=&format=webp"
+  },
+  "ankylosaurus": {
+    "name": "Ankylosaurus",
+    "value": "5 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Primal Egg](https://growagarden.fandom.com/wiki/Primal_Egg) <:PrimalEgg:1414576353499414568>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614238153113651/latest.png?ex=68b54bb4&is=68b3fa34&hm=be89cc82145e641613fbd7df8efe583b76a22b4028c6c2caa3aa6e39a052389b&=&format=webp"
+  },
+  "dilophosaurus": {
+    "name": "Dilophosaurus",
+    "value": "20 Mimic Value",
+    "demand": "Extremely High",
+    "trend": "Rising Fast",
+    "tier": "Mythical",
+    "obtainement": "[Primal Egg](https://growagarden.fandom.com/wiki/Primal_Egg) <:PrimalEgg:1414576353499414568>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411614088924237825/latest.png?ex=68b54b91&is=68b3fa11&hm=56290da87854755131f9663a3fbd7721556d66b22edd0980f2b9ac30022851bd&=&format=webp"
+  },
+  "axolotl": {
+    "name": "Axolotl",
+    "value": "2 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Oasis Egg](https://growagarden.fandom.com/wiki/Oasis_Egg) <:OasisEgg:1414577046058696845> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411613898645180488/latest.png?ex=68b54b63&is=68b3f9e3&hm=4777f668c4cd1ef7e8617f82ae1f14fc5960374388e5833ef9b86bb9746c8ae6&=&format=webp",
+    "last_updated": "2025-09-12T21:08:36.817336"
+  },
+  "lemon_lion": {
+    "name": "Lemon Lion",
+    "value": "10 Mimic Value",
+    "demand": "High",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Admin Abuse War](https://growagarden.fandom.com/wiki/Admin_Abuse_War)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409405654405349477/latest.png?ex=68ad42cd&is=68abf14d&hm=9902c4e4856f8ae5c00e66a5c5292bf7e681490b9ceb3be8463cd472057e71ea&=&format=webp"
+  },
+  "hyacinth_macaw": {
+    "name": "Hyacinth Macaw",
+    "value": "3 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Oasis Egg](https://growagarden.fandom.com/wiki/Oasis_Egg) <:OasisEgg:1414577046058696845> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409335667397492848/latest.png?ex=68ad019f&is=68abb01f&hm=d77bc4519b90ff3fa0c948b6953798b5d67d65030f48780d228bdb782b294982&=&format=webp"
+  },
+  "night_owl": {
+    "name": "Night Owl",
+    "value": "6 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Lunar Moon Shop](https://growagarden.fandom.com/wiki/Lunar_Glow_Event) <:LunarGlowEvent:1414577771262378025> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409335458420232242/1000.png?ex=68ad016d&is=68abafed&hm=070d17dae51ffe9614aea3fb0a7a7b19346ae523e85c367c3b10d7edfc348b69&=&format=webp&width=817&height=817"
+  },
+  "blood_kiwi": {
+    "name": "Blood Kiwi",
+    "value": "8 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Blood Moon](https://growagarden.fandom.com/wiki/Lunar_Glow_Event) <:LunarGlowEvent:1414577771262378025> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409335184209346671/latest.png?ex=68ad012c&is=68abafac&hm=3df1d4ad3b2a24a712e862c82ecf47be3f455854d53ddedc6d235139a315d5cc&=&format=webp"
+  },
+  "cooked_owl": {
+    "name": "Cooked Owl",
+    "value": "7 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Admin 1.10 Update](https://growagarden.fandom.com/wiki/Update_Log/1.10.0) <:AdminWar:1414578691253473290> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409335038281252995/latest.png?ex=68ad0109&is=68abaf89&hm=66b7f3bcd90143a1b3c692ec706d0e2c3dd1cd9473e76f88443521c1c7d245af&=&format=webp"
+  },
+  "echo_frog": {
+    "name": "Echo Frog",
+    "value": "6 Mimic Value",
+    "demand": "High",
+    "trend": "Rising",
+    "tier": "Mythical",
+    "obtainement": "[Night Egg](https://growagarden.fandom.com/wiki/Night_Egg) <:NightEgg:1414564747839279145> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1409334810144407613/latest.png?ex=68ad00d2&is=68abaf52&hm=e30552bea6dfde4a04b77f4dd0ed2645df886d3248629e58d77021d8464f9ccd&=&format=webp"
+  },
+  "golden_bee": {
+    "name": "Golden Bee",
+    "value": "Unreleased",
+    "demand": "Unknown",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Unreleased](https://growagarden.fandom.com/wiki/Golden_Bee)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406774155742806107/latest.png?ex=68a3b007&is=68a25e87&hm=f19f636f961ab529286057bbebce546f86d4a400d4d3947f7431a1fbf569a35e&=&format=webp"
+  },
+  "owl": {
+    "name": "Owl",
+    "value": "3 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Lunar Shop](https://growagarden.fandom.com/wiki/Lunar_Glow_Event)",
+    "image_url": "https://cdn.discordapp.com/attachments/1392596655903215677/1406772899771191429/latest.png?ex=68a3aedb&is=68a25d5b&hm=7b0f460b50aec4c739daeea45232ae835e4cdcd1516cb8eedd1fb065bbb802af"
+  },
+  "firefly": {
+    "name": "FireFly",
+    "value": "Unreleased",
+    "demand": "Unknown",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Unreleased](https://growagarden.fandom.com/wiki/Firefly)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406772502935634031/latest.png?ex=68a3ae7d&is=68a25cfd&hm=41d06c2439556d25c11fd30862e7ee96b91b1c634aa9c814df10b7f9fbb4850a&=&format=webp"
+  },
+  "chicken_zombie": {
+    "name": "Chicken Zombie",
+    "value": "35 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Admin Abuse War](https://growagarden.fandom.com/wiki/Admin_Abuse_War) <:AdminWar:1414578691253473290> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406772212421230743/latest.png?ex=68a3ae38&is=68a25cb8&hm=449147229b74262571b0485115e3e6d1b6b2f16f0cd6b918e3006fcc73a9ba36&=&format=webp"
+  },
+  "hamster": {
+    "name": "Hamster",
+    "value": "2 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Summer Shop](https://growagarden.fandom.com/wiki/Summer_Harvest_Event) <:SummerHarvest:1414581311657738390> ",
+    "image_url": "https://cdn.discordapp.com/attachments/1392596655903215677/1406767826953441331/image0.jpg?ex=68a3aa22&is=68a258a2&hm=cd92a212be4b97a9e97435917d5af3a44b26ccc04df4bf52b4a1e9397c76268a&"
+  },
+  "golem": {
+    "name": "Golem",
+    "value": "3 Mimic Value",
+    "demand": "Medium",
+    "trend": "Rising",
+    "tier": "Mythical",
+    "obtainement": "[Sprout Egg](https://growagarden.fandom.com/wiki/Sprout_Egg) <:SproutEgg:1414577369884135455> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756756654395422/latest.png?ex=68a39fd3&is=68a24e53&hm=713a5375797dcb128aff47695f3c9edc7270a0ff51f66469631be152466c85b8&=&format=webp"
+  },
+  "mimic_octopus": {
+    "name": "Mimic Octopus",
+    "value": "100 Mimic Value",
+    "demand": "High",
+    "trend": "Rising",
+    "tier": "Mythical",
+    "obtainement": "[Paradise Egg](https://growagarden.fandom.com/wiki/Paradise_Egg) <:ParadiseEgg:1414575102896509011> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756724546994458/latest.png?ex=68a39fcb&is=68a24e4b&hm=f0e671b44a6415cc3b07c1eac5b0e217c8af8e92740d1cdf57b4ae528db38a57&=&format=webp"
+  },
+  "pack_bee": {
+    "name": "Pack Bee",
+    "value": "4 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Crafting Bench](https://growagarden.fandom.com/wiki/Pack_Bee)",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756697464373278/latest.png?ex=68a39fc4&is=68a24e44&hm=7832d867d54b6f59bb8620b76c2412628aa4f384d4cc7e916e6f6fce818a4816&=&format=webp"
+  },
+  "butterfly": {
+    "name": "Butterfly",
+    "value": "320 Mimic Value",
+    "demand": "High",
+    "trend": "Rising",
+    "tier": "Mythical",
+    "obtainement": "[Anti-Bee Egg](https://growagarden.fandom.com/wiki/Anti_Bee_Egg) <:AntiBeeEgg:1414575274137358477> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756640438489148/latest.png?ex=68a39fb7&is=68a24e37&hm=64317a27dcef410a7a334f3651b58c6018f04fa99400ac64ed1ec560cab18405&=&format=webp"
+  },
+  "bear_bee": {
+    "name": "Bear Bee",
+    "value": "7 Mimic Value",
+    "demand": "Medium",
+    "trend": "Rising",
+    "tier": "Mythical",
+    "obtainement": "[Bee Egg](https://growagarden.fandom.com/wiki/Bee_Egg) <:BeeEgg:1414575642783125534> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756605428764692/latest.png?ex=68a39faf&is=68a24e2f&hm=24c4ee80a90c768bb5ee3d1e64c34140c796de49ba76597d58c40f2430da0092&=&format=webp"
+  },
+  "squirell": {
+    "name": "Squirell",
+    "value": "0.7 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Mythical Egg](https://growagarden.fandom.com/wiki/Mythical_Egg) <:MythicalEgg:1414571206299881577>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756563171016824/latest.png?ex=68a39fa4&is=68a24e24&hm=0ce6f5ff22121729d641da6f21a35609db9ffde45ca5a9010dc6a673a3821d30&=&format=webp"
+  },
+  "red_giant_ant": {
+    "name": "Red Giant Ant",
+    "value": "0.7 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Mythical Egg](https://growagarden.fandom.com/wiki/Mythical_Egg) <:MythicalEgg:1414571206299881577>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756450587377747/latest.png?ex=68a39f8a&is=68a24e0a&hm=4ad9ec06c4dfff69335989bdda178dbae459257164facca6bb7430dcda3a545f&=&format=webp"
+  },
+  "praying_mantis": {
+    "name": "Praying Mantis",
+    "value": "2 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Bug Egg](https://growagarden.fandom.com/wiki/Bug_Egg) <:BugEgg:1414571623465353337>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406756419918762095/latest.png?ex=68a39f82&is=68a24e02&hm=6809989ff04c53d0447f70050c3b5b25cb3f59d9fdac9e223d3006f3f4170b0d&=&format=webp"
+  },
+  "brown_mouse": {
+    "name": "Brown Mouse",
+    "value": "1 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Mythical Egg](https://growagarden.fandom.com/wiki/Mythical_Egg) <:MythicalEgg:1414571206299881577>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406755608891228301/latest.png?ex=68a39ec1&is=68a24d41&hm=1be008a6188b5a1fc4aedbcead0b1071a3efddffd3d64ea48b4485e9d7818e75&=&format=webp"
+  },
+  "moth": {
+    "name": "Moth",
+    "value": "2.5 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Anti-Bee Egg](https://growagarden.fandom.com/wiki/Anti_Bee_Egg) <:AntiBeeEgg:1414575274137358477> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411625507497185400/latest.png?ex=68b55633&is=68b404b3&hm=d2e8e05f3901ab9c9d95a0a0e7ce7a88e2547a79015a463cc04975c28816d2bd&=&format=webp"
+  },
+  "petal_bee": {
+    "name": "Petal Bee",
+    "value": "6 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Bee Egg](https://growagarden.fandom.com/wiki/Bee_Egg) <:BeeEgg:1414575642783125534> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411625233273851984/latest.png?ex=68b555f2&is=68b40472&hm=319e6505b9b5a968534621c49db1d19e5828e22b110e497c2401d668e753426b&=&format=webp"
+  },
+  "imp": {
+    "name": "Imp",
+    "value": "5 Mimic Value",
+    "demand": "Medium",
+    "trend": "Fluctuating",
+    "tier": "Legendary",
+    "obtainement": "[Enchanted Egg](https://growagarden.fandom.com/wiki/Enchanted_Egg) <:EnchantedEgg:1414612740978249778> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1415817512926318622/latest.png?ex=68c4964f&is=68c344cf&hm=1212165d826c7e6011863fba490a726225b9928f0c5b64dd4bfcfe92e4a6c45f&=&format=webp&quality=lossless"
+  },
+  "snail": {
+    "name": "Snail",
+    "value": "2 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Bug Egg](https://growagarden.fandom.com/wiki/Bug_Egg) <:BugEgg:1414571623465353337>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411624896882020436/latest.png?ex=68b555a2&is=68b40422&hm=0192932e7e21e3cce7b76cf06235c3dee53facb35afc89be51a36d03f7bc052d&=&format=webp"
+  },
+  "catterpillar": {
+    "name": "Catterpillar",
+    "value": "3 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Bug Egg](https://growagarden.fandom.com/wiki/Bug_Egg) <:BugEgg:1414571623465353337>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411624744012349500/latest.png?ex=68b5557d&is=68b403fd&hm=59bbdf527092fe5872cf3e7152101549b38ca6b8dae9fdb25eb060452d76b9bf&=&format=webp"
+  },
+  "shroomie": {
+    "name": "Shroomie",
+    "value": "2 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Enchanted Chest](https://growagarden.fandom.com/wiki/Enchanted_Chest) <:EnchantedChest:1416092781713293322>  ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416107525702684715/latest.png?ex=68c5a468&is=68c452e8&hm=dab06f0653216befe875aa3d3a72e6d73b4e4a95aed495ba8b5978dcd06c299a&=&format=webp&quality=lossless"
+  },
+  "tarantula_hawk": {
+    "name": "Tarantula Hawk",
+    "value": "3 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Anti-Bee Egg](https://growagarden.fandom.com/wiki/Anti_Bee_Egg) <:AntiBeeEgg:1414575274137358477> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411624591927017512/latest.png?ex=68b55559&is=68b403d9&hm=1f5b0e93fd13b83c419465f281cad6ea1538490fb991cb5c1a019d45489bd24e&=&format=webp"
+  },
+  "grey_mouse": {
+    "name": "Grey Mouse",
+    "value": "1 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Mythical Egg](https://growagarden.fandom.com/wiki/Mythical_Egg) <:MythicalEgg:1414571206299881577>",
+    "image_url": "https://media.discordapp.net/attachments/1391477739680301187/1411613365138100305/latest.png?ex=68b54ae4&is=68b3f964&hm=3a8e9a0a5adeea22def666a19b3da104169fbc3fb3fae03e11876aa87c0be0fe&=&format=webp"
+  },
+  "pancake_mole": {
+    "name": "Pancake Mole",
+    "value": "3 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Gourmet Egg](https://growagarden.fandom.com/wiki/Gourmet_Egg) <:GourmetEgg:1414568135205453836>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743413407219874/latest.png?ex=68a39365&is=68a241e5&hm=10d5edeaa02bd0e8551dcc1220cef2ff6074fdb4d819db35d81a563a2de0eaaf&=&format=webp"
+  },
+  "nihonzaru": {
+    "name": "Nihonzaru",
+    "value": "3 Mimic Value",
+    "demand": "High",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Zen Egg](https://growagarden.fandom.com/wiki/Zen_Egg) <:ZenEgg:1414566667324882965>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743364484858087/latest.png?ex=68a3935a&is=68a241da&hm=08b2c4c9294032393ebe5dfec8c9ea059ad98b3afb7aa8d49657558866668655&=&format=webp"
+  },
+  "tsuchinoko": {
+    "name": "Tsuchinoko",
+    "value": "Unreleased",
+    "demand": "Unknown",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Corrupted Zen Egg](https://growagarden.fandom.com/wiki/Corrupted_Zen_Egg) <:CorruptedZenEgg:1414567365387227328>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743318234398832/latest.png?ex=68a3934f&is=68a241cf&hm=7d58068d21354f2361320ff1adabb84f1a289a13554e955ae43c1bdbb0df3123&=&format=webp"
+  },
+  "spotted_deer": {
+    "name": "Spotted Deer",
+    "value": "0.3 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Egg](https://growagarden.fandom.com/wiki/Rare_Egg) <:RareEgg:1414570249193259038> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743264140329072/latest.png?ex=68a39342&is=68a241c2&hm=01f5749533a3cec4634143f0fbbd08399fa34922e02ba92fb5c92a52f6cd0bc7&=&format=webp"
+  },
+  "rooster": {
+    "name": "Rooster",
+    "value": "0.3 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Egg](https://growagarden.fandom.com/wiki/Rare_Egg) <:RareEgg:1414570249193259038> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743213393444974/latest.png?ex=68a39336&is=68a241b6&hm=f2e0e4ccb2b61d022ff2588f831c783fbf39c3002ecb5f419225ac23a0070537&=&format=webp"
+  },
+  "pig": {
+    "name": "Pig",
+    "value": "0.3 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Egg](https://growagarden.fandom.com/wiki/Rare_Egg) <:RareEgg:1414570249193259038> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743182246678598/latest.png?ex=68a3932e&is=68a241ae&hm=a48a3319f92787d6acf3797d98f0a9ef94175c74d2c9fc42bba20b73ce46b078&=&format=webp"
+  },
+  "orange_tabby": {
+    "name": "Orange Tabby",
+    "value": "4 Mimic Value",
+    "demand": "High",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Egg](https://growagarden.fandom.com/wiki/Rare_Egg) <:RareEgg:1414570249193259038> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743157210878033/latest.png?ex=68a39328&is=68a241a8&hm=f04d955f8ff6a8e914c814ff11a8fde6d0c3cca3ce56f860489c299e7e6783f3&=&format=webp"
+  },
+  "monkey": {
+    "name": "Monkey",
+    "value": "0.3 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Egg](https://growagarden.fandom.com/wiki/Rare_Egg) <:RareEgg:1414570249193259038> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406743119352955112/latest.png?ex=68a3931f&is=68a2419f&hm=25dd8b0fbec132ff8c3ad6adb8fbf5604c6ddc0cfbb47b9b187c63b434603c24&=&format=webp"
+  },
+  "hedgehog": {
+    "name": "Hedgehog",
+    "value": "1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Lunar Glow Event](https://growagarden.fandom.com/wiki/Lunar_Glow_Event) <:LunarGlowEvent:1414577771262378025> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406742752099569715/1000.png?ex=68a392c8&is=68a24148&hm=d05d82a4cd6fcac204138c755e38a6451d3e1280c419911be8945239aa7bedc2&=&format=webp&width=817&height=817"
+  },
+  "kiwi": {
+    "name": "Kiwi",
+    "value": "1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Lunar Glow Event](https://growagarden.fandom.com/wiki/Lunar_Glow_Event) <:LunarGlowEvent:1414577771262378025> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406742660940828732/latest.png?ex=68a392b2&is=68a24132&hm=97c788085653d20b95d9564b6c5ec63b4c6feba77c5cbf3227a3458d61e1295f&=&format=webp"
+  },
+  "wasp": {
+    "name": "Wasp",
+    "value": "1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Anti-Bee Egg](https://growagarden.fandom.com/wiki/Anti_Bee_Egg) <:AntiBeeEgg:1414575274137358477> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740809205944383/latest.png?ex=68a390f8&is=68a23f78&hm=303b57d2cb50483a9ccbd809b4706bbc7b097e78d390ae256c0de25d5e1c6e9b&=&format=webp"
+  },
+  "honey_bee": {
+    "name": "Honey Bee",
+    "value": "1 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Bee Egg](https://growagarden.fandom.com/wiki/Bee_Egg) <:BeeEgg:1414575642783125534> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740781942702120/latest.png?ex=68a390f2&is=68a23f72&hm=7a6d084c43dc8fdf3d72ac78ab05fefd7c78a6f823360c190a5fe4ef474f5283&=&format=webp"
+  },
+  "seal": {
+    "name": "Seal",
+    "value": "2 Mimic Value",
+    "demand": "High",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Summer Egg](https://growagarden.fandom.com/wiki/Rare_Summer_Egg) <:RareSummerEgg:1414574678881865779> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740760451350558/latest.png?ex=68a390ed&is=68a23f6d&hm=d621203d7d93c0c41842941cc0ec5c9a5b415730ff4ca88896864f9ce38c1e78&=&format=webp"
+  },
+  "orangutan": {
+    "name": "Orangutan",
+    "value": "0.5 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Summer Egg](https://growagarden.fandom.com/wiki/Rare_Summer_Egg) <:RareSummerEgg:1414574678881865779> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740728956059759/latest.png?ex=68a390e5&is=68a23f65&hm=0252192ad2c7d5ab1983ae305163c4b02785d0b8be06c246c47e8974db50f535&=&format=webp"
+  },
+  "sea_turtle": {
+    "name": "Sea Turtle",
+    "value": "2 Mimic Value",
+    "demand": "High",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Summer Egg](https://growagarden.fandom.com/wiki/Rare_Summer_Egg) <:RareSummerEgg:1414574678881865779> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740701147955330/latest.png?ex=68a390df&is=68a23f5f&hm=86c3717aa187baeab1d5d1de3bc7ac18254d8c7fde2e9ae23f9fcf5cd7e67dbf&=&format=webp"
+  },
+  "toucan": {
+    "name": "Toucan",
+    "value": "3 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Summer Egg](https://growagarden.fandom.com/wiki/Rare_Summer_Egg) <:RareSummerEgg:1414574678881865779> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406740670777004224/latest.png?ex=68a390d7&is=68a23f57&hm=b4ea9a7bc92465cf06373e874b90c7f3729ed28270452dc78bac27b5489e09f9&=&format=webp"
+  },
+  "flamingo": {
+    "name": "Flamingo",
+    "value": "1 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Rare",
+    "obtainement": "[Rare Summer Egg](https://growagarden.fandom.com/wiki/Rare_Summer_Egg) <:RareSummerEgg:1414574678881865779> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406739954708779088/latest.png?ex=68a3902d&is=68a23ead&hm=d58c3b430b4da8c4e5a05cada4d5153efe3b5c7f21b8b206f56ac49995f5fb5e&=&format=webp"
+  },
+  "sunny_side_chicken": {
+    "name": "Sunny Side Chicken",
+    "value": "0.7 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Culinarian Chest](https://growagarden.fandom.com/wiki/Culinarian_Chest) <:CulinarianChest:1414578168039346376> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406735866159956109/latest.png?ex=68a38c5e&is=68a23ade&hm=f9fbe53e5da0cb3bd4020b84ea901a1d9c2b3eb9f64db4dc6851a3f502186e91&=&format=webp"
+  },
+  "maneki_neo": {
+    "name": "Maneki Neo",
+    "value": "0.7 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Zen Egg](https://growagarden.fandom.com/wiki/Zen_Egg) <:ZenEgg:1414566667324882965>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406735655614152744/latest.png?ex=68a38c2c&is=68a23aac&hm=71928aff30761f95ead18b0989e4bcb6afe30fee4c11890241ed1cba2adaef62&=&format=webp"
+  },
+  "shiba_inu": {
+    "name": "Shiba inu",
+    "value": "0.4 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Zen Egg](https://growagarden.fandom.com/wiki/Zen_Egg) <:ZenEgg:1414566667324882965>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406735473392615454/latest.png?ex=68a38c00&is=68a23a80&hm=f5a32d4659a87d5dc78ccbac9a785e1f0e0cd26131404ebdf8be96c013b9599a&=&format=webp"
+  },
+  "deer": {
+    "name": "Deer",
+    "value": "0.1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Uncommon Egg](https://growagarden.fandom.com/wiki/Uncommon_Egg) <:UncommonEgg:1414569449347878994>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406735320073900212/latest.png?ex=68a38bdc&is=68a23a5c&hm=360e88a9e66e36a4c0e5a4b40a8cb27468fc3bd79540ba43537619d48836c67d&=&format=webp"
+  },
+  "dog": {
+    "name": "Dog",
+    "value": "0.1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Uncommon Egg](https://growagarden.fandom.com/wiki/Uncommon_Egg) <:UncommonEgg:1414569449347878994>",
+    "image_url": "https://media.discordapp.net/attachments/1414528231834386545/1414536162110079079/latest.png?ex=68bfecf5&is=68be9b75&hm=6f29489cd2d6ee7c876b9a7f8058366684cad206ce43705fa5fdac6bdfbc5d4a&=&format=webp&quality=lossless"
+  },
+  "cat": {
+    "name": "Cat",
+    "value": "0.8 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Uncommon Egg](https://growagarden.fandom.com/wiki/Uncommon_Egg) <:UncommonEgg:1414569449347878994>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406734658758246592/latest.png?ex=68a38b3e&is=68a239be&hm=571e7a610f8254d813d23a08d5b21163705f6f59ecae067498715854a3467161&=&format=webp"
+  },
+  "black_bunny": {
+    "name": "Black Bunny",
+    "value": "0.4 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Uncommon Egg](https://growagarden.fandom.com/wiki/Uncommon_Egg) <:UncommonEgg:1414569449347878994>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406734495356551189/latest.png?ex=68a38b17&is=68a23997&hm=6f03d06b4b6f1521be0cd09b1519703c6a6f986ba9c786db2c6e8bf75a8fd91b&=&format=webp"
+  },
+  "jackalope": {
+    "name": "Jackalope",
+    "value": "0.4 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Sprout Egg](https://growagarden.fandom.com/wiki/Sprout_Egg) <:SproutEgg:1414577369884135455> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406734287310426233/latest.png?ex=68a38ae5&is=68a23965&hm=7d97ded35f7d652fecca2dc78bea30973bf6c1c51ce9aa1335a1b928cd0af642&=&format=webp"
+  },
+  "bacon_pig": {
+    "name": "Bacon Pig",
+    "value": "0.6 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Uncommon",
+    "obtainement": "[Culinarian Chest](https://growagarden.fandom.com/wiki/Culinarian_Chest) <:CulinarianChest:1414578168039346376> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406734117395107983/latest.png?ex=68a38abd&is=68a2393d&hm=ad33cbe577da9cd4af9052c08ac2d6d2198d1edf49a9b48c244d8c0cf6f6a583&=&format=webp"
+  },
+  "bee": {
+    "name": "Bee",
+    "value": "0.6 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Bee Egg](https://growagarden.fandom.com/wiki/Bee_Egg) <:BeeEgg:1414575642783125534> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406733262432374887/latest.png?ex=68a389f1&is=68a23871&hm=03013698b9fde1700e10521c890d98bb0587e7dfddec6c201c9cffe694a25573&=&format=webp"
+  },
+  "dairy_cow": {
+    "name": "Dairy Cow",
+    "value": "0.4 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Sprout Egg](https://growagarden.fandom.com/wiki/Sprout_Egg) <:SproutEgg:1414577369884135455> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406732693374369912/latest.png?ex=68a38969&is=68a237e9&hm=879f89fd371b086abb0b526ed3c9c71387fc1d3d90f68480a705f003aa0a9415&=&format=webp"
+  },
+  "golden_lab": {
+    "name": "Golden Lab",
+    "value": "0.3 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Common Egg](https://growagarden.fandom.com/wiki/Common_Egg) <:CommonEgg:1414568496590749747> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406732440659165375/latest.png?ex=68a3892d&is=68a237ad&hm=893ed0219c4e404c83f6c58c5656e90d4d4e4917ec2299186009e7054bac41ab&=&format=webp"
+  },
+  "bunny": {
+    "name": "Bunny",
+    "value": "0.1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Common Egg](https://growagarden.fandom.com/wiki/Common_Egg) <:CommonEgg:1414568496590749747> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406732124048064612/latest.png?ex=68a388e2&is=68a23762&hm=b2428b0c51104be7494a681037457afd62cfa2aab16ebbfefcfba3ed5c86cdc3&=&format=webp"
+  },
+  "seagull": {
+    "name": "Seagull",
+    "value": "0.1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Common Summer Egg](https://growagarden.fandom.com/wiki/Common_Summer_Egg) <:CommonSummerEgg:1414572984714395678> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406728057229934763/latest.png?ex=68a38518&is=68a23398&hm=bd78dbc1bebde0f14d419fb7ff05bc34ba6728b5c3a5311f51763660f36142d3&=&format=webp"
+  },
+  "crab": {
+    "name": "Crab",
+    "value": "0.1 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Common Summer Egg](https://growagarden.fandom.com/wiki/Common_Summer_Egg) <:CommonSummerEgg:1414572984714395678> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406727823045169233/latest.png?ex=68a384e0&is=68a23360&hm=ce604a57a6b4671c7dfa51bcec261ccadb98d928cf6cf503db3d4c27963481ea&=&format=webp"
+  },
+  "starfish": {
+    "name": "Starfish",
+    "value": "0.2 Mimic Value",
+    "demand": "Terrible",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Common Summer Egg](https://growagarden.fandom.com/wiki/Common_Summer_Egg) <:CommonSummerEgg:1414572984714395678> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1406726773164605633/latest.png?ex=68a383e6&is=68a23266&hm=26739aff83a5834050d5cfcbd21fbe5fcf40e31db9cde411321085f371ae4eec&=&format=webp"
+  },
+  "cardinal": {
+    "name": "Cardinal",
+    "value": "0.3 Mimic Value",
+    "demand": "Low",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Enchanted Chest](https://growagarden.fandom.com/wiki/Enchanted_Chest) <:EnchantedChest:1416092781713293322>  ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416108221726331001/BtwAAAAZJREFUAwA5Fznuax4rdQAAAABJRU5ErkJggg.png?ex=68c5a50e&is=68c4538e&hm=81f4d1905b39b11a933f91b566b2d7f98bfc8d16f03eab24aed49b15197854e5&=&format=webp&quality=lossless"
+  },
+  "seedling": {
+    "name": "Seedling",
+    "value": "0.6 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Legendary",
+    "obtainement": "[Sprout Egg](https://growagarden.fandom.com/wiki/Sprout_Egg) <:SproutEgg:1414577369884135455> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1411932617430794300/latest.png?ex=68b67438&is=68b522b8&hm=cd7348895b82652641887091211f1b7026a8ee297117be7c0235e237d8a5827c&=&format=webp"
+  },
+  "cockatrice": {
+    "name": "Cockatrice",
+    "value": "55 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Enchanted Egg](https://growagarden.fandom.com/wiki/Enchanted_Egg) <:EnchantedEgg:1414612740978249778> ",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1412874491213910106/latest.png?ex=68b9e168&is=68b88fe8&hm=6bde9c63fdb93c95a29e8b3429ca82aa9fa32c8dbfdf285dde64e0000600222d&=&format=webp"
+  },
+  "drake": {
+    "name": "Drake",
+    "value": "5 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Fairy Fare Shop](https://growagarden.fandom.com/wiki/Fairy_Event) <:FairyEvent:1416177637461852324>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416177129460072488/latest.png?ex=68c5e53a&is=68c493ba&hm=93d58e0928d3f59d581dc614a00a03d1d33464647ab61358d95cc6d646945020&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-12T21:45:39.320146",
+    "message_id": null
+  },
+  "glimmering_sprite": {
+    "name": "Glimmering Sprite",
+    "value": "10 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Mythical",
+    "obtainement": "[Enchanted Egg](https://growagarden.fandom.com/wiki/Enchanted_Egg) <:EnchantedEgg:1414612740978249778>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416183788261605469/Glimmering20Sprite.png?ex=68c5eb6e&is=68c499ee&hm=2e027bc28257039aa75eb74fe92270505bb640ca43e0a9d4a002dfc87a218e54&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-12T22:10:30.416488",
+    "message_id": null
+  },
+  "ladybug": {
+    "name": "LadyBug",
+    "value": "0.2 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Common",
+    "obtainement": "[Enchanted Egg](https://growagarden.fandom.com/wiki/Enchanted_Egg) <:EnchantedEgg:1414612740978249778>",
+    "image_url": "https://media.discordapp.net/attachments/1392596655903215677/1416185365542207538/Ladybug.png?ex=68c5ece6&is=68c49b66&hm=91e490b2d4833f8698c126a5e8f97d9aa99ba527e8757b71f643e3a52a349428&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-12T22:16:07.344677",
+    "message_id": null
+  },
+  "space_squirel": {
+    "name": "Space Squirel",
+    "value": "25 Mimic Value",
+    "demand": "Medium",
+    "trend": "Falling",
+    "tier": "Divine",
+    "obtainement": "[Fall Pet Shop](https://growagarden.fandom.com/wiki/Fall_Market_Event) <:FallEvent:1417159284155879524>",
+    "image_url": "https://media.discordapp.net/attachments/1414999544755781652/1417143513312661515/image0.png?ex=68c9693e&is=68c817be&hm=f89c7d3ddc170c138a85575c15adda0879c53d7d26d0e92ff217a239e5cc8f96&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-15T14:45:16.949223",
+    "message_id": null
+  },
+  "swan": {
+    "name": "Swan",
+    "value": "30 Mimic Value",
+    "demand": "Medium",
+    "trend": "Stable",
+    "tier": "Divine",
+    "obtainement": "[Fall Egg](https://growagarden.fandom.com/wiki/Fall_Egg) <:FallEgg:1417490836970668144>",
+    "image_url": "https://media.discordapp.net/attachments/1414999544755781652/1417490583680979026/latest.png?ex=68caac7a&is=68c95afa&hm=42748358e2090bb182ed0b3d650fad0440c0a6bcbceebd703618271140bfb871&=&format=webp&quality=lossless",
+    "last_updated": "2025-09-16T12:43:39.355248",
+    "message_id": null
+  }
+}
